@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/user/Desktop/seven">
-                <classes>
-                   <class name="LoginTest"/>
-                </classes>
+<suite name="Smoke Test Suite" parallel="false">
+
+    <test name="Smoke Test Execution">
+        <classes>
+            <!-- Подключаем тестовый класс LoginTest -->
+            <class name="LoginTest">
+                <methods>
+                    <include name="testValidLogin"/>
+                    <include name="testInvalidPassword"/>
+                    <include name="testInvalidUsername"/>
+                    <include name="testEmptyFields"/>
+                    <include name="testOnlyUsernameFilled"/>
+                    <include name="testOnlyPasswordFilled"/>
+                    <include name="testLongCredentials"/>
+                    <include name="testSpacesInCredentials"/>
+                    <include name="testCaseSensitivity"/>
+                </methods>
+            </class>
+
+            <!-- Если у вас есть другие классы с тестами, их тоже можно добавить -->
+            <class name="DashboardTest"/>
+            <class name="UserTest"/>
+        </classes>
     </test>
+
 </suite>
