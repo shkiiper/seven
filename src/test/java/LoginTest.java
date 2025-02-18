@@ -25,12 +25,10 @@ public class LoginTest extends BaseTest{
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
         try {
-            // ✅ Ждем появления алерта (если логин или пароль неверные)
             WebElement alertError = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.cssSelector(".toast-message")));
             return alertError.getText();
         } catch (Exception e) {
-            // Если алерт не появился, продолжаем проверку ошибок валидации
         }
 
         // ✅ Проверяем ошибки валидации (пустые поля, некорректный логин)
