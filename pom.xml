@@ -59,8 +59,6 @@
 </dependencies>
 
 
-    
-
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
@@ -99,8 +97,9 @@
                     <!-- javaagent: used to take this jar files as paramater to pass To JVM -->
                     <!--suppress UnresolvedMavenProperty -->
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.19/aspectjweaver-1.9.19.jar"
                     </argLine>
+
                     <!-- Take output to target -->
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
@@ -112,6 +111,12 @@
                         <artifactId>aspectjweaver</artifactId>
                         <version>1.9.19</version>
                     </dependency>
+                    <dependency>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-testng</artifactId>
+                        <version>2.20.0</version>
+                    </dependency>
+
                 </dependencies>
             </plugin>
             <!-- give IntelliJ acceptable to run and open allure report automatic By download allure binary in project
