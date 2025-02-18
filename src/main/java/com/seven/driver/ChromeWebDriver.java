@@ -17,7 +17,7 @@ public class ChromeWebDriver {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-extensions");
-//        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--window-size=1920,1080");
         options.addArguments("--no-sandbox");
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 

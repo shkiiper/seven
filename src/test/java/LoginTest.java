@@ -7,9 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Description;
-import io.qameta.allure.Story;
 
 import java.time.Duration;
 import java.util.List;
@@ -51,9 +48,6 @@ public class LoginTest extends BaseTest{
 
 
     @Test
-    @Feature("Авторизация")
-    @Story("Успешный вход")
-    @Description("Проверяем, что пользователь может успешно войти")
     public void testValidLogin() {
         loginPage.login("shkiiper", "wedfvb123")
                 .moveToLegacyInterface();
