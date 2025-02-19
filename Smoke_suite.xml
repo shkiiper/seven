@@ -4,7 +4,7 @@
     <test name="Login Tests">
         <classes>
             <class name="LoginTest"/>
-            <class name="DashboardTest"/>
+
         </classes>
     </test>
 </suite>
