@@ -55,7 +55,7 @@ public class DashboardPage extends BasePage {
 
 
     public void navigateToSection(Section section) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
         WebElement sectionElement = Driver.getDriver().findElement(By.xpath(
                 "//div[@id='tl-admin-dashboard']//div[contains(@onclick, '" + section.getPath() + "')]"
         ));
