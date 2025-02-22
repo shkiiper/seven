@@ -28,29 +28,49 @@ public class DashboardPage extends BasePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    public DashboardPage moveToLegacyInterface() {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
+//    public DashboardPage moveToLegacyInterface() {
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
+//
+//        try {
+//            WebElement profileButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                    By.cssSelector("[data-testid='profile-menu-button']")));
+//            profileButton.click();
+//            System.out.println("✅ Клик по Profile Menu");
+//
+//            WebElement legacyButton = wait.until(ExpectedConditions.elementToBeClickable(
+//                    By.xpath("//a[@data-testid='legacy-menu-item']")));
+//            legacyButton.click();
+//            System.out.println("✅ Клик по Legacy Interface");
+//
+//        } catch (TimeoutException e) {
+//            System.out.println("⚠️ Не удалось перейти в Legacy Interface: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//        return this;
+//    }
+public DashboardPage moveToLegacyInterface() {
+    WebElementActions actions = new WebElementActions();
 
-        try {
-            // ✅ Ожидаем появление и кликаем на кнопку профиля
-            WebElement profileButton = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.cssSelector("[data-testid='profile-menu-button']")));
-            profileButton.click();
-            System.out.println("✅ Клик по Profile Menu");
+    try {
+        WebElement profileButton = Driver.getDriver().findElement(By.cssSelector("[data-testid='profile-menu-button']"));
+        actions.waitElementToBeDisplayed(profileButton);
+        actions.waitButtonToBeClickAble(profileButton);
+        profileButton.click();
+        System.out.println("✅ Клик по Profile Menu");
 
-            // ✅ Ожидаем появление меню и кликаем на Legacy Interface
-            WebElement legacyButton = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//a[@data-testid='legacy-menu-item']")));
-            legacyButton.click();
-            System.out.println("✅ Клик по Legacy Interface");
+        WebElement legacyButton = Driver.getDriver().findElement(By.xpath("//a[@data-testid='legacy-menu-item']"));
+        actions.waitElementToBeDisplayed(legacyButton);
+        actions.waitButtonToBeClickAble(legacyButton);
+        legacyButton.click();
+        System.out.println("✅ Клик по Legacy Interface");
 
-        } catch (TimeoutException e) {
-            System.out.println("⚠️ Не удалось перейти в Legacy Interface: " + e.getMessage());
-            e.printStackTrace();
-        }
-
-        return this;
+    } catch (TimeoutException e) {
+        System.out.println("⚠️ Не удалось перейти в Legacy Interface: " + e.getMessage());
+        e.printStackTrace();
     }
+    return this;
+}
+
 
 
 
