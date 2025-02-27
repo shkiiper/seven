@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.List;
 
 public class DashboardPage extends BasePage {
     WebElementActions actions = new WebElementActions();
@@ -52,6 +53,16 @@ public DashboardPage moveToLegacyInterface() {
     WebElementActions actions = new WebElementActions();
 
     try {
+
+        List<WebElement> closeButtonList = Driver.getDriver().findElements(By.xpath("//a[@data-testid='header-close-button']"));
+        if (!closeButtonList.isEmpty()) {
+            WebElement closeButton = closeButtonList.get(0);
+            actions.waitElementToBeDisplayed(closeButton);
+            actions.waitButtonToBeClickAble(closeButton);
+            closeButton.click();
+            System.out.println("✅ Клик по кнопке закрытия всплывающего окна");
+        }
+
         WebElement profileButton = Driver.getDriver().findElement(By.cssSelector("[data-testid='profile-menu-button']"));
         actions.waitElementToBeDisplayed(profileButton);
         actions.waitButtonToBeClickAble(profileButton);
